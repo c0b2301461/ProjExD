@@ -12,7 +12,7 @@ def main():
     font = pg.font.Font(None, 80)
 
     enn = pg.Surface((20, 20))
-    pg.draw.circle(enn, (255, 0, 0), (10, 10), 10)
+    pg.draw.circle(enn, (255, 0, 0), (100, 10), 10)
     enn.set_colorkey((0, 0, 0))
 
     tmr = 0
@@ -26,7 +26,7 @@ def main():
         screen.blit(enn, [100, 400])
         pg.display.update()
         tmr += 1        
-        clock.tick(0.1)
+        clock.tick(1)
 
 
 if __name__ == "__main__":
