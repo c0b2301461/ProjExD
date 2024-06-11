@@ -28,18 +28,26 @@ def main():
         
 
         key_lst = pg.key.get_pressed()
+        move_x,move_y = 0,0
         if key_lst[pg.K_UP]:
-            kk_rct.move_ip(0,-1)
+            move_y = -1
         key_lst = pg.key.get_pressed()
         if key_lst[pg.K_DOWN]:
-            kk_rct.move_ip(0,+1)
+            move_y = +1
         key_lst = pg.key.get_pressed()
         if key_lst[pg.K_LEFT]:
-            kk_rct.move_ip(-1,0)
+            move_x = -1
         key_lst = pg.key.get_pressed()
         if key_lst[pg.K_RIGHT]:
-            kk_rct.move_ip(+1,0)
+            move_x = +1
         screen.blit(kk_img , kk_rct)
+
+        if not any(key_lst):
+            move_x = -1
+        elif key_lst[pg.K_RIGHT]:
+            move_x = 1
+
+        kk_rct.move_ip(move_x,move_y)
 
 
         pg.display.update()
